@@ -30,23 +30,44 @@ let arrItemIs1 = function itemInCheckArray(item){
 }
 
 //extra credit
-let extra = function someAddOn(v1,l1) {
+let extra = function someAddOn(v1,l1,v2,l2) {
            arr[0] = v1;arr[1] = l1;
-
+           arr[2] = v2;arr[3] = l2;
             if(arr[1] === "seconds" && arr[0]%60 == 0){
               arr[1] = "minute";
-              if(arr[1]>10){arr[1] = "minutes";}
+              if(arr[0]>10){arr[1] = "minutes";}
               arr[0] = arr[0]/60;
             }
             if(arr[1] === "minutes" && arr[0]%60 == 0){
               arr[1] = "hour";
-              if(arr[1]>10){arr[1] = "hours";}
+              if(arr[0]>10){arr[1] = "hours";}
               arr[0] = arr[0]/60;
             }
             if(arr[1] === "hours" && arr[0]%24 == 0 ){
               arr[1] = "day";
-              if(arr[1]>10){arr[1] = "days";}
+              if(arr[0]>10){arr[1] = "days";}
               arr[0] = arr[0]/24;
+            }
+            ///
+            if(arr[3] === "seconds" && arr[2]%60 == 0){
+              arr[3] = "minute";
+              if(arr[2]>10){arr[3] = "minutes";}
+              arr[2] = arr[2]/60;
+            }
+            if(arr[3] === "minutes" && arr[2]%60 == 0){
+              arr[3] = "hour";
+              if(arr[2]>10){arr[3] = "hours";}
+              arr[2] = arr[2]/60;
+            }
+            if(arr[3] === "hours" && arr[2]%24 == 0 ){
+              arr[3] = "day";
+              if(arr[2]>10){arr[1] = "days";}
+              arr[2] = arr[2]/24;
+            }
+            if(arr[1] == arr[3]){
+              let val1 = arr[0] + arr[2];
+              let lab1 = arr[1];
+              arr = [val1,lab1];
             }
 
 }
@@ -107,10 +128,10 @@ let extra = function someAddOn(v1,l1) {
 
 
    arr = [value1, label1, value2, label2];
-   extra(arr[0],arr[1]);
+   extra(arr[0],arr[1],arr[2],arr[3]);
    console.log(arr);
  }
 
 
 
- timeAdder(120, "seconds",60,"seconds");
+ timeAdder(120, "hours",60,"days");
